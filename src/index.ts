@@ -1,8 +1,13 @@
 import express from 'express';
 import { PORT } from './config/constants';
 
+import { userRouter } from './routes';
+
+
 const app = express();
 app.use(express.json());
+
+app.use('/users', userRouter);
 
 app.get('/', (req, res) => {
     res.send({ message: 'endpoint working' });

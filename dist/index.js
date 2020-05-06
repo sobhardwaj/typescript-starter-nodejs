@@ -5,8 +5,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var constants_1 = require("./config/constants");
+var routes_1 = require("./routes");
 var app = express_1.default();
 app.use(express_1.default.json());
+app.use('/users', routes_1.userRouter);
 app.get('/', function (req, res) {
     res.send({ message: 'endpoint working' });
 });
